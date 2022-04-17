@@ -2,6 +2,7 @@ import InternetExplorer from './InternetExplorer';
 import Minesweeper from './Minesweeper';
 import ErrorBox from './ErrorBox';
 import MyComputer from './MyComputer';
+import NewWindow from './NewWindow';
 import Notepad from './Notepad';
 import Winamp from './Winamp';
 import Paint from './Paint';
@@ -108,6 +109,26 @@ export const defaultAppState = [
     id: genId(),
     zIndex: genIndex(),
   },
+  {
+    component: NewWindow,
+    header: {
+      title: 'NewWindow',
+      icon: iePaper,
+    },
+    defaultSize: {
+      width: 700,
+      height: 500,
+    },
+    defaultOffset: {
+      x: 130,
+      y: 20,
+    },
+    resizable: true,
+    minimized: false,
+    maximized: window.innerWidth < 800,
+    id: genId(),
+    zIndex: genIndex(),
+  },
 ];
 
 export const defaultIconState = [
@@ -151,6 +172,13 @@ export const defaultIconState = [
     icon: paintLarge,
     title: 'Paint',
     component: Paint,
+    isFocus: false,
+  },
+  {
+    id: 6,
+    icon: computerLarge,
+    title: 'New Window',
+    component: NewWindow,
     isFocus: false,
   },
 ];
@@ -234,6 +262,26 @@ export const appSettings = {
     maximized: window.innerWidth < 800,
     multiInstance: false,
   },
+  'NewWindow': {
+    header: {
+      icon: computer,
+      title: 'NewWindow',
+    },
+    component: NewWindow,
+    defaultSize: {
+      width: 660,
+      height: 500,
+    },
+    defaultOffset: {
+      x: 260,
+      y: 50,
+    },
+    resizable: true,
+    minimized: false,
+    maximized: window.innerWidth < 800,
+    multiInstance: false,
+  },
+  
   Notepad: {
     header: {
       icon: notepad,
@@ -292,6 +340,7 @@ export const appSettings = {
     maximized: window.innerWidth < 800,
     multiInstance: true,
   },
+  
 };
 
 export { InternetExplorer, Minesweeper, ErrorBox, MyComputer, Notepad, Winamp };
